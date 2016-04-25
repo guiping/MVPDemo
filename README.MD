@@ -6,7 +6,8 @@
 
 * MVC模式的交互图
 
- ![](https://github.com/guiping/MVPDemo/tree/master/app/art/MVC.png)
+ ![](https://raw.githubusercontent.com/guiping/MVPDemo/tree/master/app/art/MVC.png)
+ ![](https://raw.githubusercontent.com/jiang111/RxJavaApp/master/app/art/1.png)
  
  1. View：android中的UI界面，展现界面给用户的界面，负责和用户交互
  2. Model：android中的数据层，实体类，数据库，文件等一些数据模型。
@@ -266,5 +267,4 @@
 
 >网络请求用的是Retrofit [详细](http://square.github.io/retrofit/)
  
-
 
