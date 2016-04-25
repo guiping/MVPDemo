@@ -6,7 +6,7 @@
 
 * MVC模式的交互图
 
- ![](C:\Users\Administrator\Desktop\MVC.png)
+ ![](https://github.com/guiping/MVPDemo/tree/master/app/src/main/res/img/MVC.png)
  
  1. View：android中的UI界面，展现界面给用户的界面，负责和用户交互
  2. Model：android中的数据层，实体类，数据库，文件等一些数据模型。
@@ -16,12 +16,13 @@
 
 * MVP模式
 
-![](C:\Users\Administrator\Desktop\MVP图.png)
+![](https://github.com/guiping/MVPDemo/tree/master/app/src/main/res/img/MVP图.png)
 
  1. View：android中的UI界面，展现界面给用户的界面，负责和用户交互
  2. Model：android中的数据层，实体类，数据库，文件等一些数据模型。
  3. Presenter:中间人和MVC中的Control类似
  4. IView： 回调接口，负责更新View界面。
+ 
  > MVP开发不允许View和Model直接交互，必须通过P来控制View和M交互。 这样V只有V和P的交互，没有v和M的交互，这样如果UI修改了我们只需要修改UI逻辑处理层不需要改变，如果逻辑修改了我们直接修改p层，不会在v中去修改逻辑，代码耦合度大大的降低。P层的代码也可以多界面复用。
  
 ##MVPDemo详解
@@ -29,7 +30,7 @@
 
 * 项目整体框架图：
 
-![](C:\Users\Administrator\Desktop\MVP代码.png)
+![](https://github.com/guiping/MVPDemo/tree/master/app/src/main/res/img/MVP代码.png)
 
 
 * 需求就是通过请求api接口，实现读取数据，并且可以加载更多，和刷新内容。
