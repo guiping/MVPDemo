@@ -2,6 +2,7 @@ package lvy.so.mvpdemo.view.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,12 +43,20 @@ public class LoadDataAdapter extends RecyclerView.Adapter<LoadDataAdapter.LoadDa
     }
 
     @Override
-    public void onBindViewHolder(LoadDataViewHolder holder, int position) {
+    public void onBindViewHolder(LoadDataViewHolder holder, final int position) {
         int red = (int) (Math.random() * 255);
         int green = (int) (Math.random() * 255);
         int blue = (int) (Math.random() * 255);
         holder.ivShowPhoto.setBackgroundColor(Color.argb(204, red, green, blue));
         Glide.with(mContext).load(mList.get(position).getUrl()).centerCrop().into(holder.ivShowPhoto);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (itemRecycleViewListener != null) {
+                    itemRecycleViewListener.onItemRecycleViewListener(position);
+                }
+            }
+        });
     }
 
     @Override
@@ -58,11 +67,21 @@ public class LoadDataAdapter extends RecyclerView.Adapter<LoadDataAdapter.LoadDa
     public class LoadDataViewHolder extends RecyclerView.ViewHolder {
 //        @Bind(R.id.iv_showPhoto)
         ImageView ivShowPhoto;
+        CardView cardView;
         public LoadDataViewHolder(View itemView) {
             super(itemView);
 //            ButterKnife.bind(mContext,itemView);
             ivShowPhoto = (ImageView) itemView.findViewById(R.id.iv_showPhoto);
+            cardView = (CardView) itemView.findViewById(R.id.item_card_view);
         }
+    }
+
+    private OnItemRecycleViewListener itemRecycleViewListener;
+    public void setOnItemRecycleViewListener(OnItemRecycleViewListener onItemRecycleViewListener) {
+         this.itemRecycleViewListener = onItemRecycleViewListener;
+    }
+    public interface  OnItemRecycleViewListener{
+        void onItemRecycleViewListener(int position);
     }
 
 }

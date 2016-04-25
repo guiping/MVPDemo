@@ -1,5 +1,6 @@
 package lvy.so.mvpdemo.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -25,7 +26,7 @@ import lvy.so.mvpdemo.view.adapter.LoadDataAdapter;
 import lvy.so.mvpdemo.view.impl.ILoadView;
 import lvy.so.mvpdemo.widget.RefreshRecyclerView;
 
-public class MainActivity extends BaseActivity implements ILoadView,RefreshRecyclerView.OnLoadMoreListener,SwipeRefreshLayout.OnRefreshListener {
+public class MainActivity extends BaseActivity implements ILoadView,RefreshRecyclerView.OnLoadMoreListener,SwipeRefreshLayout.OnRefreshListener,LoadDataAdapter.OnItemRecycleViewListener {
     @Bind(R.id.toolbar)
     Toolbar toolbar;
     @Bind(R.id.recycleview_showMessage)
@@ -134,6 +135,7 @@ public class MainActivity extends BaseActivity implements ILoadView,RefreshRecyc
         recycleviewShowMessage.setLayoutManager(new LinearLayoutManager(this));
         recycleviewShowMessage.setAdapter(loadDataAdapter);
         recycleviewShowMessage.setOnLoadMoreListener(this);
+        loadDataAdapter.setOnItemRecycleViewListener(this);
         swiperefreshLayout.setOnRefreshListener(this);
     }
     @Override
@@ -154,5 +156,15 @@ public class MainActivity extends BaseActivity implements ILoadView,RefreshRecyc
     protected void onDestroy() {
         super.onDestroy();
         mLoadPresenter.replease();
+    }
+
+    @Override
+    public void onItemRecycleViewListener(int position) {
+        Intent intent = new Intent();
+        Bundle bun = new Bundle();
+        bun.putSerializable("dataEntity",mList.get(position));
+        intent.putExtra("dataEntityBundle",bun);
+        intent.setClass(this,ShowPhotoDetailActivity.class);
+        startActivity(intent);
     }
 }
