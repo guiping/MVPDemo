@@ -3,14 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipToPadding="true"
     android:fitsSystemWindows="true"
     tools:context=".view.ShowPhotoDetailActivity">
-    <include layout="@layout/app_toolsbar"
-        />
 
-    <ImageView
-        android:id="@+id/iv_showPhoto"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
+        <include
+            android:id="@+id/apptoolsbarlayout"
+            layout="@layout/app_toolsbar" />
+
+        <ImageView
+            android:id="@+id/iv_showPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/apptoolsbarlayout" />
+    </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>
