@@ -37,30 +37,31 @@
 * 数据刷新采用V4包里面的SwipeRefreshLayout控件，加载更多是重写RecycleView的onScrollStateChanged方法判断如果到可显示最后第二条数据的时候就去请求加载更多数据。--->也就是一个分页
 >RecycleView加载更多：
 
-      @Override
-    public void onScrollStateChanged(int state) {
-        LinearLayoutManager llm = (LinearLayoutManager) getLayoutManager();
-        if (state == RefreshRecyclerView.SCROLL_STATE_IDLE) {
-            int lastVisiblePosition = llm.findLastCompletelyVisibleItemPosition(); //当前可显示最后一条数据
-            int totalVisiblePosition = llm.getItemCount(); //获取当前界面总共有多少条数据
-            if (lastVisiblePosition == (totalVisiblePosition - 1)) {  // 判断可见 数据最后一天是不是 是总数据的倒数第二条 如果是就接口回调加载更多
-                if (loadMoreListener != null) {
-                    loadMoreListener.loadMore();
-                }
-            }
-        }
-        super.onScrollStateChanged(state);
-    }
+        
+	      @Override
+	    public void onScrollStateChanged(int state) {
+	        LinearLayoutManager llm = (LinearLayoutManager) getLayoutManager();
+	        if (state == RefreshRecyclerView.SCROLL_STATE_IDLE) {
+	            int lastVisiblePosition = llm.findLastCompletelyVisibleItemPosition(); //当前可显示最后一条数据
+	            int totalVisiblePosition = llm.getItemCount(); //获取当前界面总共有多少条数据
+	            if (lastVisiblePosition == (totalVisiblePosition - 1)) {  // 判断可见 数据最后一天是不是 是总数据的倒数第二条 如果是就接口回调加载更多
+	                if (loadMoreListener != null) {
+	                    loadMoreListener.loadMore();
+	                }
+	            }
+	        }
+	        super.onScrollStateChanged(state);
+	    }
 
-    private OnLoadMoreListener loadMoreListener;
-    /**设置接口*/
-    public void setOnLoadMoreListener(OnLoadMoreListener onLoadMoreListener) { 
-        this.loadMoreListener = onLoadMoreListener;
-    }
-    /**加载更多的接口*/
-    public interface OnLoadMoreListener {
-        void loadMore();
-    }
+	    private OnLoadMoreListener loadMoreListener;
+	    /**设置接口*/
+	    public void setOnLoadMoreListener(OnLoadMoreListener onLoadMoreListener) { 
+	        this.loadMoreListener = onLoadMoreListener;
+	    }
+	    /**加载更多的接口*/
+	    public interface OnLoadMoreListener {
+	        void loadMore();
+	    }
 
 
 * 接下来看看IView 的实现：
