@@ -16,7 +16,7 @@
 
 * MVP模式
 
-![](https://raw.githubusercontent.com/guiping/MVPDemo/tree/master/app/art/MVP图.png)
+![](https://raw.githubusercontent.com/guiping/MVPDemo/master/app/art/MVP图.png)
 
      1. View：android中的UI界面，展现界面给用户的界面，负责和用户交互
      2. Model：android中的数据层，实体类，数据库，文件等一些数据模型。
@@ -30,7 +30,7 @@
 
 * 项目整体框架图：
 
-![](https://raw.githubusercontent.com/guiping/MVPDemo/tree/master/app/art/MVP代码.png)
+![](https://raw.githubusercontent.com/guiping/MVPDemo/master/app/art/MVP代码.png)
 
 
 * 需求就是通过请求api接口，实现读取数据，并且可以加载更多，和刷新内容。
