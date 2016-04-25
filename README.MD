@@ -8,9 +8,9 @@
 
  ![](https://raw.githubusercontent.com/guiping/MVPDemo/master/app/art/MVC.png)
 
-     1. View：android中的UI界面，展现界面给用户的界面，负责和用户交互
-     2. Model：android中的数据层，实体类，数据库，文件等一些数据模型。
-     3. Control： android 负责接收用户的事件，进行逻辑处理。例：进行网络请求，读取数据库，保存文件等等一系列逻辑控制处理
+      1. View：android中的UI界面，展现界面给用户的界面，负责和用户交互
+      2. Model：android中的数据层，实体类，数据库，文件等一些数据模型。
+      3. Control： android 负责接收用户的事件，进行逻辑处理。例：进行网络请求，读取数据库，保存文件等等一系列逻辑控制处理
    
 > android开发中，往往UI是易变的，指不定什么时候产品就修改一次，最痛苦的是一个Ui界面有时候会处理很多逻辑。而MVC模式，允许View和Model直接交互，如果view既可以和Model交互又可以通过control和model交互，会导致View代码臃肿,想想都有点混乱。这样如果产品UI和逻辑修改，会很痛苦的。
 
