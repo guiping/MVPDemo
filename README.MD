@@ -28,6 +28,10 @@
 ##MVPDemo详解
 >借http://gank.io/api/开源Api 实现一个MVP的Demo
 
+>最终效果图
+
+![](https://raw.githubusercontent.com/guiping/MVPDemo/master/app/art/MVPDemo.gif)
+
 * 项目整体框架图：
 
 ![](https://raw.githubusercontent.com/guiping/MVPDemo/master/app/art/MVP代码.png)
